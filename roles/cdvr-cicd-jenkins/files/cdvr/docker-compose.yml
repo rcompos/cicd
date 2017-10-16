@@ -1,0 +1,77 @@
+version: '3.0'
+
+services:
+
+  jenkins0:
+    restart: unless-stopped
+    build: ./jenkins
+    volumes:
+      - jenkins0-vol:/var/jenkins_home
+    environment:
+      - JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+
+  jenkins1:
+    restart: unless-stopped
+    build: ./jenkins
+    volumes:
+      - jenkins1-vol:/var/jenkins_home
+    environment:
+      - JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
+    ports:
+      - "8081:8080"
+      - "50001:50000"
+
+  jenkins2:
+    restart: unless-stopped
+    build: ./jenkins
+    volumes:
+      - jenkins2-vol:/var/jenkins_home
+    environment:
+      - JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
+    ports:
+      - "8082:8080"
+      - "50002:50000"
+
+  jenkins3:
+    restart: unless-stopped
+    build: ./jenkins
+    volumes:
+      - jenkins3-vol:/var/jenkins_home
+    environment:
+      - JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
+    ports:
+      - "8083:8080"
+      - "50003:50000"
+
+  jenkins4:
+    restart: unless-stopped
+    build: ./jenkins
+    volumes:
+      - jenkins4-vol:/var/jenkins_home
+    environment:
+      - JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
+    ports:
+      - "8084:8080"
+      - "50004:50000"
+
+  jenkins5:
+    restart: unless-stopped
+    build: ./jenkins
+    volumes:
+      - jenkins5-vol:/var/jenkins_home
+    environment:
+      - JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
+    ports:
+      - "8085:8080"
+      - "50005:50000"
+
+volumes:
+  jenkins0-vol:
+  jenkins1-vol:
+  jenkins2-vol:
+  jenkins3-vol:
+  jenkins4-vol:
+  jenkins5-vol:

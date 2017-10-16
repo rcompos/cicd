@@ -1,0 +1,7 @@
+# roles/cdvr-cid-agent/handlers/main.yml
+
+- name: Restart Docker
+  service:
+    name: docker
+    state: restarted
+  become: true

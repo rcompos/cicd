@@ -1,0 +1,13 @@
+# roles/cdvr-cicd-master/handlers/main.yml
+
+- name: Restart Docker
+  service:
+    name: docker
+    state: restarted
+  become: true
+
+- name: Restart Firewalld
+  service:
+    name: firewalld
+    state: restarted
+  become: true

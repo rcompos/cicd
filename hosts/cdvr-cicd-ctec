@@ -1,0 +1,15 @@
+# CTEC CloudDVR Build Servers
+
+[cdvr-cicd-ctec-master]
+cicd0
+
+[cdvr-cicd-ctec-agent]
+cicd1
+
+[cdvr-cicd-ctec-jenkins]
+cicd2
+
+[cdvr-cicd-ctec:children]
+cdvr-cicd-ctec-master
+cdvr-cicd-ctec-agent
+cdvr-cicd-ctec-jenkins
