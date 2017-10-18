@@ -32,13 +32,13 @@ services:
       - "8080:8080"
       - "50000:50000"
 
-  artifactory:
-    restart: unless-stopped
-    image: docker.bintray.io/jfrog/artifactory-oss
-    volumes:
-      - artifactory-vol:/var/opt/jfrog/artifactory
-    ports:
-      - "8081:8081"
+  #artifactory:
+  #  restart: unless-stopped
+  #  image: docker.bintray.io/jfrog/artifactory-oss
+  #  volumes:
+  #    - artifactory-vol:/var/opt/jfrog/artifactory
+  #  ports:
+  #    - "8081:8081"
 
   cadvisor:
     restart: unless-stopped
@@ -54,8 +54,28 @@ services:
     ports:
       - "8089:8080"
 
+  #elk:
+  #  restart: unless-stopped
+  #  image: sebp/elk
+  #  volumes:
+  #    - elk-vol:/var/lib/elasticsearch
+  #  ports:
+  #    - "5601:5601"
+  #    - "9200:9200"
+  #    - "5044:5044"
+
+  prometheus:
+    restart: unless-stopped
+    image: prom/prometheus
+    volumes:
+      - ./prometheus.yml:/tmp/prometheus.yml
+    ports:
+      - "9999:9090"
+    command: -config.file=/tmp/prometheus.yml
+
 volumes:
   jenkins-vol:
   mariadb-vol:
   gogs-vol:
-  artifactory-vol:
+  #artifactory-vol:
+  #elk-vol:
