@@ -25,9 +25,11 @@ services:
 
   jenkins:
     restart: unless-stopped
-    image: jenkins
+    image: ./jenkins
     volumes:
       - jenkins-vol:/var/jenkins_home
+    environment:
+      - JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
     ports:
       - "8080:8080"
       - "50000:50000"

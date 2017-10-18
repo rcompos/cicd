@@ -1,4 +1,4 @@
-FROM jenkins
+FROM jenkins:2.60.3
 MAINTAINER Ron Compos <rcompos@gmail.com>
 
 USER root
