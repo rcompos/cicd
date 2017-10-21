@@ -1,0 +1,44 @@
+# Ansibles for Continuous Integration Continuous Deployment
+
+### Description
+
+Provision Continuous Integration/Continuous Delivery (CI/CD) build servers.  All services are run as Docker containers.
+
+---
+
+### Deploy Jenkins Build Master
+
+    # ansible-playbook -l <target> -i hosts/cicd playbooks/cicd-master.yml -k
+
+### Deploy Jenkins Build Agent
+
+    # ansible-playbook -l <target> -i hosts/cicd playbooks/cicd-agent.yml -k
+    
+### Deploy Multi Jenkins
+
+    # ansible-playbook -l <target> -i hosts/cicd playbooks/cicd-jenkins.yml -k
+
+---
+
+Cdvr-cicd playbooks are included for the primary build server and other configurations.
+
+`cicd-master.yml`
+`cicd-agent.yml`
+`cicd-jenkins.yml`
+
+---
+
+### group_vars:
+Environment specific variables are used to create the appropriate configuration files at deploy time.
+
+**Universal**
+- block_device: "/dev/sdb"
+
+---
+
+### Admin Interfaces:
+The admin interfaces are available at:
+
+Jenkins Sandbox            http://<target>:8080  
+Gogs GIt Repo                http://<target>:3000  
+cAdvisor Resource Monitor     http://<targer>:8089  

@@ -1,0 +1,15 @@
+# CICD Inventory
+
+[cicd-master]
+cicd0
+
+[cicd-agent]
+cicd1
+
+[cicd-jenkins]
+cicd2
+
+[cicd:children]
+cicd-master
+cicd-agent
+cicd-jenkins
