@@ -13,12 +13,12 @@
     state: absent
   #notify: Restart Docker
 
-- name: Install RPM
-  yum:
-    name: "{{ item }}"
-  with_items:
-    - docker-ce
-  become: true
+#- name: Install RPM
+#  yum:
+#    name: "{{ item }}"
+#  with_items:
+#    - docker-ce
+#  become: true
 
 - name: Ugrade All Packages
   yum:

@@ -4,7 +4,7 @@ services:
 
   gogs:
     restart: unless-stopped
-    image: gogs/gogs:0.11.29
+    image: gogs/gogs
     volumes:
       - gogs-vol:/data
     ports:
@@ -15,7 +15,7 @@ services:
 
   mariadb:
     restart: unless-stopped
-    image: mariadb:10.3.2
+    image: mariadb
     volumes:
       - mariadb-vol:/var/lib/mysql
     environment:
@@ -25,8 +25,7 @@ services:
 
   jenkins:
     restart: unless-stopped
-    #image: jenkins:2.60.3
-    build: ./jenkins
+    image: ./jenkins
     volumes:
       - jenkins-vol:/var/jenkins_home
     environment:
@@ -45,7 +44,7 @@ services:
 
   cadvisor:
     restart: unless-stopped
-    image: google/cadvisor:v0.27.1
+    image: google/cadvisor:latest
     privileged: true
     volumes:
       - /:/rootfs:ro 
@@ -57,16 +56,6 @@ services:
     ports:
       - "8089:8080"
 
-  nexus:
-    restart: unless-stopped
-    image: sonatype/nexus3:3.6.0
-    volumes:
-      - nexus-vol:/nexus-data
-    ports:
-      - "8181:8081"
-      - "8182:8082"
-      - "8183:8083"
-
   #elk:
   #  restart: unless-stopped
   #  image: sebp/elk
@@ -77,19 +66,18 @@ services:
   #    - "9200:9200"
   #    - "5044:5044"
 
-  #prometheus:
-  #  restart: unless-stopped
-  #  image: prom/prometheus:v1.8.1
-  #  volumes:
-  #    - ./prometheus.yml:/tmp/prometheus.yml
-  #  ports:
-  #    - "9090:9090"
-  #  command: -config.file=/tmp/prometheus.yml
+  prometheus:
+    restart: unless-stopped
+    image: prom/prometheus
+    volumes:
+      - ./prometheus.yml:/tmp/prometheus.yml
+    ports:
+      - "9999:9090"
+    command: -config.file=/tmp/prometheus.yml
 
 volumes:
   jenkins-vol:
   mariadb-vol:
   gogs-vol:
-  nexus-vol:
   #artifactory-vol:
   #elk-vol:
