@@ -1,10 +1,10 @@
-# roles/cdvr-cicd-master/tasks/main.yml
+# roles/cicd-master/tasks/main.yml
 # Requires CentOS
 
 - name: Role Facts
   set_fact:
     compose_home: "/root"
-    compose_dir: "cdvr"
+    compose_dir: "cicd"
 
 - name: Disable listener for Jenkins Docker Plugin
   lineinfile:

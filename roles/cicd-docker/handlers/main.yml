@@ -1,4 +1,4 @@
-# roles/cdvr-cid-master/handlers/main.yml
+# roles/cicd-master/handlers/main.yml
 
 - name: Restart Docker
   service:

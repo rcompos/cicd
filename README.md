@@ -35,7 +35,7 @@ Environmental variables are used to specify parameters at deploy time.
 **Universal**
 - block_device: "/dev/sdb"
 - compose_home: "/root"
-- compose_dir: "cdvr"
+- compose_dir: "cicd"
 
 ---
 ### Admin Interfaces:

@@ -1,10 +1,10 @@
-# roles/cdvr-cicd-agent/tasks/main.yml
+# roles/cicd-agent/tasks/main.yml
 # Requires CentOS
 
 - name: Role Facts
   set_fact:
     #block_device: "/dev/sdb"
-    compose_dir: "/root/cdvr"
+    compose_dir: "/root/cicd"
 
 #- name: Install RPM
 #  yum:
@@ -21,7 +21,7 @@
 #Change to lineinfile
 - name: Copy daemon.json
   copy:
-    src: daemon-cdvr-cicd.json
+    src: daemon-cicd.json
     dest: /etc/docker/daemon.json
     owner: root
     group: root

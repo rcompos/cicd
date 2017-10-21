@@ -1,0 +1,8 @@
+---
+
+- name: CICD Multiple Jenkins Server
+  hosts: cicd-ctec
+  serial: 1
+  roles:
+    - cicd-docker
+    - cicd-jenkins

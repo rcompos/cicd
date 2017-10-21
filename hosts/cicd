@@ -2,12 +2,13 @@
 
 [cicd-master]
 cicd0
-
-[cicd-agent]
 cicd1
 
-[cicd-jenkins]
+[cicd-agent]
 cicd2
+
+[cicd-jenkins]
+cicd3
 
 [cicd:children]
 cicd-master
