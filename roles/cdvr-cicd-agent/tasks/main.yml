@@ -1,0 +1,34 @@
+---
+# Requires CentOS
+
+- name: Role Facts
+  set_fact:
+    sock_port: 4243
+
+#- name: Install RPM
+#  yum:
+#    name: "{{ item }}"
+#  with_items:
+#    - docker-compose
+#  become: true
+
+#- name: Ugrade All Packages
+#  yum:
+#    name: '*'
+#    state: latest
+
+#Change to lineinfile
+- name: Copy daemon.json
+  copy:
+    src: daemon-cdvr-cicd.json
+    dest: /etc/docker/daemon.json
+    owner: root
+    group: root
+    mode: 0644
+  notify: Restart Docker
+
+- name: Run docker-compose down
+  shell: docker-compose down
+  args:
+    chdir: "{{ compose_home }}/{{ compose_dir }}"
+  ignore_errors: true

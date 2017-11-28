@@ -1,0 +1,8 @@
+---
+
+- name: CDVR CICD Multiple Jenkins Server
+  hosts: cdvr-cicd-ctec
+  serial: 1
+  roles:
+    - cdvr-cicd-docker
+    - cdvr-cicd-jenkins

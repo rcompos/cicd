@@ -1,0 +1,24 @@
+# CTEC CloudDVR Build Servers
+
+[cdvr-cicd-ctec-master-inv]
+cicd0
+22.254.8.90  #vsd-dev-app-01.enwd.co.sa.charterlab.com 
+
+[cdvr-cicd-ctec-agent-inv]
+cicd1
+22.254.8.91 #vsd-dev-app-02.enwd.co.sa.charterlab.com 
+22.254.8.95 #vsd-dev-app-06.enwd.co.sa.charterlab.com 
+
+[cdvr-cicd-ctec-agent-old-inv]
+22.254.8.92 #vsd-dev-app-03.enwd.co.sa.charterlab.com 
+22.254.8.93 #vsd-dev-app-04.enwd.co.sa.charterlab.com 
+
+[cdvr-cicd-ctec-jenkins-inv]
+cicd1
+22.254.8.94 #vsd-dev-app-05.enwd.co.sa.charterlab.com 
+
+[cdvr-cicd-ctec:children]
+cdvr-cicd-ctec-master-inv
+cdvr-cicd-ctec-agent-inv
+cdvr-cicd-ctec-agent-old-inv
+cdvr-cicd-ctec-jenkins-inv

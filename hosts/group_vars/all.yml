@@ -1,1 +1,5 @@
 ---
+
+compose_home: "/root"
+compose_dir: "cdvr"
+sock_port: 4243

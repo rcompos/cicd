@@ -1,8 +1,0 @@
----
-
-- name: CICD Agent Server
-  hosts: cicd-ctec
-  serial: 1
-  roles:
-    - cicd-docker
-    - cicd-agent
